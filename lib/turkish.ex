@@ -10,6 +10,11 @@ defmodule Turkish do
     adjective <> joiner <> pp_suffix
   end
 
+  def noun_to_adjective(noun) do
+    {big_harmony, _} = vowel_harmonies(noun)
+    noun <> "l" <> big_harmony
+  end
+
   @doc "Retuns the personal pronoun suffix"
   def pp_suffix({big_harmony, small_harmony}, person) do
     case person do
@@ -33,7 +38,7 @@ defmodule Turkish do
       "ı" -> {"ı", "a"}
       "o" -> {"u", "a"}
       "u" -> {"u", "a"}
-      "e" -> {"e", "e"}
+      "e" -> {"i", "e"}
       "i" -> {"i", "e"}
       "ü" -> {"ü", "e"}
       "ö" -> {"ü", "e"}

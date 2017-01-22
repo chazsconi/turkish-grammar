@@ -4,6 +4,7 @@ defmodule TurkishTest do
   # doctest Turkish
 
   test "to_be with 'u' vowel harmony" do
+    # tired
     assert "yorgunum" == to_be("yorgun", 1)
     assert "yorgunsun" == to_be("yorgun", 2)
     assert "yorgun" == to_be("yorgun", 3)
@@ -11,6 +12,7 @@ defmodule TurkishTest do
     assert "yorgunsunuz" == to_be("yorgun", 5)
     assert "yorgunlar" == to_be("yorgun", 6)
 
+    # full
     assert "tokum" == to_be("tok", 1)
     assert "toksun" == to_be("tok", 2)
     assert "tok" == to_be("tok", 3)
@@ -20,6 +22,7 @@ defmodule TurkishTest do
   end
 
   test "to_be with 'ü' vowel harmony" do
+    # sad
     assert "üzgünüm" == to_be("üzgün", 1)
     assert "üzgünsün" == to_be("üzgün", 2)
     assert "üzgün" == to_be("üzgün", 3)
@@ -29,16 +32,25 @@ defmodule TurkishTest do
   end
 
   test "to_be when ends in a vowel 1st person" do
+    # sick
     assert "hastayım" == to_be("hasta", 1)
+    # lucky
     assert "şanslıyım" == to_be("şanslı", 1)
   end
 
   test "to_be when ends in a vowel 1st person plural" do
+    # sick
     assert "hastayız" == to_be("hasta", 4)
   end
 
   test "to_be when ends in a vowel 2nd person" do
     assert "hastasın" == to_be("hasta", 2)
     assert "şanslısın" == to_be("şanslı", 2)
+  end
+
+  test "noun_to_adjective" do
+    assert "şanslı" == noun_to_adjective("şans")
+    assert "bahtlı" == noun_to_adjective("baht")
+    assert "güllü" == noun_to_adjective("gül")
   end
 end
