@@ -15,6 +15,11 @@ defmodule Turkish do
     noun <> "l" <> big_harmony
   end
 
+  def adjective_to_noun(adjective) do
+    {big_harmony, _} = vowel_harmonies(adjective)
+    adjective <> "l" <> big_harmony <> "k"
+  end
+
   @doc "Retuns the personal pronoun suffix"
   def pp_suffix({big_harmony, small_harmony}, person) do
     case person do

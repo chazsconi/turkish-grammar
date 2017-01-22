@@ -50,7 +50,7 @@ defmodule TurkishTest do
 
   test "noun_to_adjective" do
     assert "şanslı" == noun_to_adjective("şans")
-    assert "bahtlı" == noun_to_adjective("baht")
-    assert "güllü" == noun_to_adjective("gül")
+    assert "bahtlı" == noun_to_adjective("baht") # luck
+    assert "güllü" == noun_to_adjective("gül") # rose
   end
 end
