@@ -10,6 +10,42 @@ defmodule Turkish do
     adjective <> joiner <> pp_suffix
   end
 
+  def noun_to_accusative(noun) do
+    {big_harmony, _} = vowel_harmonies(noun)
+    suffix = big_harmony
+    join_stem_and_suffix(noun, suffix)
+  end
+
+  def pluralise(noun) do
+    {_, small_harmony} = vowel_harmonies(noun)
+    noun <> "l" <> small_harmony <> "r"
+  end
+
+  def noun_to_dative(noun) do
+    {_, small_harmony} = vowel_harmonies(noun)
+    suffix = small_harmony
+    join_stem_and_suffix(noun, suffix)
+  end
+
+  def join_stem_and_suffix(stem, suffix) do
+    weaken_final_consonant(stem, suffix) <> joiner(stem, suffix) <> suffix
+  end
+
+  def weaken_final_consonant(noun, suffix) do
+    if String.contains?(@vowels, String.first(suffix)) do
+      {start, last} = String.split_at(noun, -1)
+      case last do
+        "p" -> start <> "b"
+        "ç" -> start <> "c"
+        "k" -> start <> "ğ"
+        "t" -> start <> "d"
+        _   -> noun
+      end
+    else
+      noun
+    end
+  end
+
   def noun_to_adjective(noun) do
     {big_harmony, _} = vowel_harmonies(noun)
     noun <> "l" <> big_harmony

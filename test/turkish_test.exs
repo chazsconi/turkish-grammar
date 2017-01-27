@@ -53,4 +53,19 @@ defmodule TurkishTest do
     assert "bahtlı" == noun_to_adjective("baht") # luck
     assert "güllü" == noun_to_adjective("gül") # rose
   end
+
+  test "weaken_final_consonant" do
+    assert "kuş" == weaken_final_consonant("kuş", "u") # bird
+    assert "köpeğ" == weaken_final_consonant("köpek","i") # dog
+    assert "köpek" == weaken_final_consonant("köpek","le") # dog
+    assert "kebab" == weaken_final_consonant("kebap","ı")
+    assert "ağac" == weaken_final_consonant("ağaç", "ı") # tree
+    assert "halad" == weaken_final_consonant("halat", "ı") # rope
+  end
+
+  test "pluralise" do
+    assert "köpekler" == pluralise("köpek") # dog
+    assert "çocuklar" == pluralise("çocuk") # child
+    assert "kediler" == pluralise("kedi") # cat
+  end
 end
