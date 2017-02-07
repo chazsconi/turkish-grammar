@@ -92,4 +92,18 @@ defmodule TurkishTest do
     assert "çocuklar" == pluralise("çocuk") # child
     assert "kediler" == pluralise("kedi") # cat
   end
+
+  test "possessive suffix" do
+    assert "kedim" == possessive("kedi",1) # cat
+    assert "kedisi" == possessive("kedi",3)
+    assert "kedileri" == possessive("kedi",6)
+    assert "elim" == possessive("el", 1) # hand
+    assert "eli" == possessive("el", 3)
+    assert "ellerim" == possessive("eller", 1)
+    assert "sokağım" == possessive("sokak", 1) # street
+  end
+
+  test "multiple suffixes" do
+    assert "babacığım" == "baba" |> add_suffix("cık") |> add_suffix("ım") |> join_suffixes
+  end
 end
