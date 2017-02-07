@@ -10,9 +10,27 @@ defmodule Turkish do
     adjective <> joiner <> pp_suffix
   end
 
+  @doc "Retuns the personal pronoun suffix"
+  def pp_suffix({big_harmony, small_harmony}, person) do
+    case person do
+      1 -> big_harmony <> "m"
+      2 -> "s" <> big_harmony <> "n"
+      3 -> ""
+      4 -> big_harmony <> "z"
+      5 -> "s" <> big_harmony <> "n" <> big_harmony <> "z"
+      6 -> "l" <> small_harmony <> "r"
+    end
+  end
+
   def noun_to_accusative(noun) do
     {big_harmony, _} = vowel_harmonies(noun)
     suffix = big_harmony
+    join_stem_and_suffix(noun, suffix)
+  end
+
+  def noun_to_dative(noun) do
+    {_, small_harmony} = vowel_harmonies(noun)
+    suffix = small_harmony
     join_stem_and_suffix(noun, suffix)
   end
 
@@ -21,10 +39,14 @@ defmodule Turkish do
     noun <> "l" <> small_harmony <> "r"
   end
 
-  def noun_to_dative(noun) do
-    {_, small_harmony} = vowel_harmonies(noun)
-    suffix = small_harmony
-    join_stem_and_suffix(noun, suffix)
+  def noun_to_adjective(noun) do
+    {big_harmony, _} = vowel_harmonies(noun)
+    noun <> "l" <> big_harmony
+  end
+
+  def adjective_to_noun(adjective) do
+    {big_harmony, _} = vowel_harmonies(adjective)
+    adjective <> "l" <> big_harmony <> "k"
   end
 
   def join_stem_and_suffix(stem, suffix) do
@@ -43,28 +65,6 @@ defmodule Turkish do
       end
     else
       noun
-    end
-  end
-
-  def noun_to_adjective(noun) do
-    {big_harmony, _} = vowel_harmonies(noun)
-    noun <> "l" <> big_harmony
-  end
-
-  def adjective_to_noun(adjective) do
-    {big_harmony, _} = vowel_harmonies(adjective)
-    adjective <> "l" <> big_harmony <> "k"
-  end
-
-  @doc "Retuns the personal pronoun suffix"
-  def pp_suffix({big_harmony, small_harmony}, person) do
-    case person do
-      1 -> big_harmony <> "m"
-      2 -> "s" <> big_harmony <> "n"
-      3 -> ""
-      4 -> big_harmony <> "z"
-      5 -> "s" <> big_harmony <> "n" <> big_harmony <> "z"
-      6 -> "l" <> small_harmony <> "r"
     end
   end
 
