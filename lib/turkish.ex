@@ -68,7 +68,7 @@ defmodule Turkish do
     end
   end
 
-  @doc "Gives the big and small harmonies of a word"
+  @doc "Gives the big (complex) and small (simple) harmonies of a word"
   def vowel_harmonies(word) do
     vowel =
       word
@@ -81,8 +81,8 @@ defmodule Turkish do
       "u" -> {"u", "a"}
       "e" -> {"i", "e"}
       "i" -> {"i", "e"}
-      "ü" -> {"ü", "e"}
       "ö" -> {"ü", "e"}
+      "ü" -> {"ü", "e"}
     end
   end
 

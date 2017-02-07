@@ -48,10 +48,34 @@ defmodule TurkishTest do
     assert "şanslısın" == to_be("şanslı", 2)
   end
 
+  test "noun_to_accusative" do
+    assert "evi" == noun_to_accusative("ev")
+    assert "sokağı" == noun_to_accusative("sokak")
+    assert "gülü" == noun_to_accusative("gül")
+    assert "kediyi" == noun_to_accusative("kedi")
+    assert "bankayı" == noun_to_accusative("banka")
+    assert "kutuyu" == noun_to_accusative("kutu")
+  end
+
+  test "noun_to_dative" do
+    assert "eve" == noun_to_dative("ev")
+    assert "sokağa" == noun_to_dative("sokak")
+    assert "güle" == noun_to_dative("gül")
+    assert "kediye" == noun_to_dative("kedi")
+    assert "bankaya" == noun_to_dative("banka")
+    assert "kutuya" == noun_to_dative("kutu")
+  end
+
   test "noun_to_adjective" do
     assert "şanslı" == noun_to_adjective("şans")
     assert "bahtlı" == noun_to_adjective("baht") # luck
     assert "güllü" == noun_to_adjective("gül") # rose
+  end
+
+  test "adjective_to_noun" do
+    assert "güzellik" == adjective_to_noun("güzel") # beautiful
+    assert "mutluluk" == adjective_to_noun("mutlu") # happy
+    assert "zorluk" == adjective_to_noun("zor") # difficulty
   end
 
   test "weaken_final_consonant" do
