@@ -51,6 +51,18 @@ defmodule Turkish do
     |> join_suffixes
   end
 
+  def noun_to_locative(noun) do
+    suffix =
+      case String.last(noun) do
+        "k" -> "ta"
+          _ -> "da"
+      end
+
+    noun
+    |> add_suffix(suffix)
+    |> join_suffixes
+  end
+
   def pluralise(noun) do
     noun
     |> add_suffix("lar")

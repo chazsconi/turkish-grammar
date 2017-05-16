@@ -66,6 +66,12 @@ defmodule TurkishTest do
     assert "kutuya" == noun_to_dative("kutu")
   end
 
+  test "noun_to_locative" do
+    assert "evde" == noun_to_locative("ev")
+    assert "okulda" == noun_to_locative("okul")
+    assert "sokakta" == noun_to_locative("sokak")
+  end
+
   test "noun_to_adjective" do
     assert "şanslı" == noun_to_adjective("şans")
     assert "bahtlı" == noun_to_adjective("baht") # luck
