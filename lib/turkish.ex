@@ -51,6 +51,12 @@ defmodule Turkish do
     |> join_suffixes
   end
 
+  def noun_to_locative(noun) do
+    noun
+    |> add_suffix("da")
+    |> join_suffixes
+  end
+
   def pluralise(noun) do
     noun
     |> add_suffix("lar")
