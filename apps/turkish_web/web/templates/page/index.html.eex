@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-md-6">
+    <h1>nouns</h1>
+    <form action="/decline" method="post">
+      <input type="text" name="noun" value="<%= @conn.assigns[:nominative] %>"/>
+      <input type="submit" value="decline"/>
+    </form>
+    <%= if @conn.assigns[:nominative] do %>
+    <dl>
+      <dt>nominative</dt> <dd><%= @nominative %></dd>
+      <dt>accusative</dt> <dd><%= @accusative %></dd>
+      <dt>dative</dt> <dd><%= @dative %></dd>
+      <dt>locative</dt> <dd><%= @locative %></dd>
+    </dl>
+    <% end %>
+  </div>
+</div>
