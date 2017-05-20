@@ -5,6 +5,11 @@ defmodule TurkishWeb.PageController do
     render conn, "index.html"
   end
 
+  def decline(conn, %{"noun" => ""}) do
+    conn
+    |> put_flash(:error, "Please enter a noun")
+    |> render("index.html")
+  end
   def decline(conn, %{"noun" => noun}) do
     conn
     |> assign(:nominative, noun)
