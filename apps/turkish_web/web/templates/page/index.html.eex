@@ -1,36 +1,19 @@
-<div class="jumbotron">
-  <h2><%= gettext "Welcome to %{name}", name: "Phoenix!" %></h2>
-  <p class="lead">A productive web framework that<br />does not compromise speed and maintainability.</p>
-</div>
+<div class="row">
+  <div class="col-md-6">
+    <h1>nouns</h1>
+    <form action="/decline" method="post">
+      <input type="text" name="noun"/>
+      <input type="submit" value="decline"/>
+    </form>
+    <%= if @conn.assigns[:accusative] do %>
+    <dl>
+      <dt>nominative</dt> <dd><%= @nominative %></dd>
 
-<div class="row marketing">
-  <div class="col-lg-6">
-    <h4>Resources</h4>
-    <ul>
-      <li>
-        <a href="http://phoenixframework.org/docs/overview">Guides</a>
-      </li>
-      <li>
-        <a href="https://hexdocs.pm/phoenix">Docs</a>
-      </li>
-      <li>
-        <a href="https://github.com/phoenixframework/phoenix">Source</a>
-      </li>
-    </ul>
-  </div>
+      <dt>accusative</dt> <dd><%= @accusative %></dd>
+      <dt>dative</dt> <dd><%= @dative %></dd>
+      <dt>locative</dt> <dd><%= @locative %></dd>
 
-  <div class="col-lg-6">
-    <h4>Help</h4>
-    <ul>
-      <li>
-        <a href="http://groups.google.com/group/phoenix-talk">Mailing list</a>
-      </li>
-      <li>
-        <a href="http://webchat.freenode.net/?channels=elixir-lang">#elixir-lang on freenode IRC</a>
-      </li>
-      <li>
-        <a href="https://twitter.com/elixirphoenix">@elixirphoenix</a>
-      </li>
-    </ul>
+    </dl>
+    <% end %>
   </div>
 </div>
