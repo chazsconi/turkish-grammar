@@ -12,12 +12,12 @@ defmodule Turkish do
   @doc "Retuns the personal pronoun suffix"
   def pp_suffix(person) do
     case person do
-      1 -> "ım"
-      2 -> "sın"
+      1 -> "Im"
+      2 -> "sIn"
       3 -> ""
-      4 -> "ız"
-      5 -> "sınız"
-      6 -> "lar"
+      4 -> "Iz"
+      5 -> "sInIz"
+      6 -> "lAr"
     end
   end
 
@@ -30,32 +30,32 @@ defmodule Turkish do
   def possessive_suffix(person) do
     case person do
       # consonant suffix, vowel suffix
-      1 -> {"ım", "m"}
-      2 -> {"ın", "n"}
-      3 -> {"ı", "sı"}
-      4 -> {"ımız", "mız"}
-      5 -> {"ınız", "nız"}
-      6 -> "ları"
+      1 -> {"Im", "m"}
+      2 -> {"In", "n"}
+      3 -> {"I", "sI"}
+      4 -> {"ImIz", "mIz"}
+      5 -> {"InIz", "nIz"}
+      6 -> "lArI"
     end
   end
 
   def noun_to_accusative(noun) do
     noun
-    |> add_suffix("ı")
+    |> add_suffix("I")
     |> join_suffixes
   end
 
   def noun_to_dative(noun) do
     noun
-    |> add_suffix("a")
+    |> add_suffix("A")
     |> join_suffixes
   end
 
   def noun_to_locative(noun) do
     suffix =
       case String.last(noun) do
-        "k" -> "ta"
-          _ -> "da"
+        "k" -> "tA"
+          _ -> "dA"
       end
 
     noun
@@ -65,19 +65,19 @@ defmodule Turkish do
 
   def pluralise(noun) do
     noun
-    |> add_suffix("lar")
+    |> add_suffix("lAr")
     |> join_suffixes
   end
 
   def noun_to_adjective(noun) do
     noun
-    |> add_suffix("lı")
+    |> add_suffix("lI")
     |> join_suffixes
   end
 
   def adjective_to_noun(adjective) do
     adjective
-    |> add_suffix("lık")
+    |> add_suffix("lIk")
     |> join_suffixes
   end
 
@@ -94,8 +94,8 @@ defmodule Turkish do
 
     suffix
     |> choose_suffix(word)
-    |> String.replace("ı", big_harmony)
-    |> String.replace("a", small_harmony)
+    |> String.replace("I", big_harmony)
+    |> String.replace("A", small_harmony)
     |> join_suffix_to_word(word, first?)
     |> join_suffixes(suffixes, false)
   end
