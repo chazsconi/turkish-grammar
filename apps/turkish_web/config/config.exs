@@ -8,6 +8,7 @@ use Mix.Config
 # Configures the endpoint
 config :turkish_web, TurkishWeb.Endpoint,
   url: [host: "localhost"],
+  static_url: [path: "/turkish"],
   secret_key_base: "QIkvOp5EDBUgqXv/TQXeDCmpoFLbWUb7+/sr3UQPmKIiU+k7EKKmN5bkFqJhnAzm",
   render_errors: [view: TurkishWeb.ErrorView, accepts: ~w(html json)],
   pubsub: [name: TurkishWeb.PubSub,

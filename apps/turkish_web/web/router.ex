@@ -12,7 +12,7 @@ defmodule TurkishWeb.Router do
     plug :accepts, ["json"]
   end
 
-  scope "/", TurkishWeb do
+  scope "/turkish", TurkishWeb do
     pipe_through :browser # Use the default browser stack
 
     get "/", PageController, :index
