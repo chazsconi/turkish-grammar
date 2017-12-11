@@ -11,6 +11,7 @@
       <dt>accusative</dt> <dd><%= @accusative %></dd>
       <dt>dative</dt> <dd><%= @dative %></dd>
       <dt>locative</dt> <dd><%= @locative %></dd>
+      <dt>ablative</dt> <dd><%= @ablative %></dd>
     </dl>
     <% end %>
   </div>

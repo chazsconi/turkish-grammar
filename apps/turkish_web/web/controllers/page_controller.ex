@@ -16,6 +16,7 @@ defmodule TurkishWeb.PageController do
     |> assign(:accusative, Turkish.noun_to_accusative(noun))
     |> assign(:dative, Turkish.noun_to_dative(noun))
     |> assign(:locative, Turkish.noun_to_locative(noun))
+    |> assign(:ablative, Turkish.noun_to_ablative(noun))
     |> render("index.html")
   end
 end

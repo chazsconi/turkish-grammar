@@ -72,6 +72,12 @@ defmodule TurkishTest do
     assert "sokakta" == noun_to_locative("sokak")
   end
 
+  test "noun_to_ablative" do
+    assert "evden" == noun_to_ablative("ev")
+    assert "okuldan" == noun_to_ablative("okul")
+    assert "sokaktan" == noun_to_ablative("sokak")
+  end
+
   test "noun_to_adjective" do
     assert "şanslı" == noun_to_adjective("şans")
     assert "bahtlı" == noun_to_adjective("baht") # luck
