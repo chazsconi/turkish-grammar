@@ -63,6 +63,18 @@ defmodule Turkish do
     |> join_suffixes
   end
 
+  def noun_to_ablative(noun) do
+    suffix =
+      case String.last(noun) do
+        "k" -> "tAn"
+          _ -> "dAn"
+      end
+
+    noun
+    |> add_suffix(suffix)
+    |> join_suffixes
+  end
+
   def pluralise(noun) do
     noun
     |> add_suffix("lAr")

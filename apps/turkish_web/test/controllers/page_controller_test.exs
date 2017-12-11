@@ -12,6 +12,7 @@ defmodule TurkishWeb.PageControllerTest do
     assert html_response(conn, 200) =~ "evi"
     assert html_response(conn, 200) =~ "eve"
     assert html_response(conn, 200) =~ "evde"
+    assert html_response(conn, 200) =~ "evden"
   end
 
   test "POST /turkish/decline with no noun", %{conn: conn} do
