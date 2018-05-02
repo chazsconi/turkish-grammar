@@ -19,6 +19,15 @@ defmodule TurkishTest do
     assert "tokuz" == to_be("tok", 4)
     assert "toksunuz" == to_be("tok", 5)
     assert "toklar" == to_be("tok", 6)
+
+    # to be fit
+    assert "zindeyim" == to_be("zinde", 1)
+    assert "zindesin" == to_be("zinde", 2)
+    assert "zinde" == to_be("zinde", 3)
+    assert "zindeyiz" == to_be("zinde", 4)
+    assert "zindesiniz" == to_be("zinde", 5)
+    assert "zindeler" == to_be("zinde", 6)
+
   end
 
   test "to_be with 'ü' vowel harmony" do
